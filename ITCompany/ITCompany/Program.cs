@@ -1,12 +1,9 @@
-﻿using System;
-
-namespace ITCompany
+﻿namespace ITCompany
 {
     public class Program
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
         }
     }
 }
