@@ -1,6 +1,8 @@
-﻿using ITCompany.Entities;
+﻿using System;
+using ITCompany.Entities;
 using ITCompany.EntitiesConfigs;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 
 namespace ITCompany
 {
@@ -17,6 +19,12 @@ namespace ITCompany
         public DbSet<ProjectEntity> Projects { get; set; }
         public DbSet<OfficeEntity> Offices { get; set; }
         public DbSet<EmployeeProjectEntity> EmployeeProjects { get; set; }
+        public DbSet<ClientEntity> Clients { get; set; }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.EnableSensitiveDataLogging().LogTo(Console.WriteLine, LogLevel.Information);
+        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -25,6 +33,7 @@ namespace ITCompany
             modelBuilder.ApplyConfiguration(new ProjectConfiguration());
             modelBuilder.ApplyConfiguration(new OfficeConfiguration());
             modelBuilder.ApplyConfiguration(new EmployeeProjectConfiguration());
+            modelBuilder.ApplyConfiguration(new ClientConfiguration());
         }
     }
 }
