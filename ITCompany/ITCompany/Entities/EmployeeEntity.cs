@@ -17,7 +17,6 @@ namespace ITCompany.Entities
         public int? TitleId { get; set; }
         public TitleEntity Title { get; set; }
 
-        public List<ProjectEntity> Projects { get; set; } = new List<ProjectEntity>();
         public List<EmployeeProjectEntity> EmployeeProject { get; set; } = new List<EmployeeProjectEntity>();
     }
 }

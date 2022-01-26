@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ITCompany.Migrations
 {
     [DbContext(typeof(ITCompanyDbContext))]
-    [Migration("20220124194506_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20220126211219_AddClientTable")]
+    partial class AddClientTable
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -21,19 +21,76 @@ namespace ITCompany.Migrations
                 .HasAnnotation("ProductVersion", "5.0.13")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("EmployeeEntityProjectEntity", b =>
+            modelBuilder.Entity("ITCompany.Entities.ClientEntity", b =>
                 {
-                    b.Property<int>("EmployeesEmployeeId")
-                        .HasColumnType("int");
+                    b.Property<int>("ClientId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("ProjectsProjectId")
-                        .HasColumnType("int");
+                    b.Property<DateTimeOffset>("CooperationStartDate")
+                        .HasColumnType("datetimeoffset");
 
-                    b.HasKey("EmployeesEmployeeId", "ProjectsProjectId");
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
-                    b.HasIndex("ProjectsProjectId");
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
-                    b.ToTable("EmployeeEntityProjectEntity");
+                    b.Property<string>("PhoneNumber")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.HasKey("ClientId");
+
+                    b.ToTable("Client");
+
+                    b.HasData(
+                        new
+                        {
+                            ClientId = -1,
+                            CooperationStartDate = new DateTimeOffset(new DateTime(2022, 1, 26, 21, 12, 19, 230, DateTimeKind.Unspecified).AddTicks(3358), new TimeSpan(0, 0, 0, 0, 0)),
+                            Email = "Email 1",
+                            Name = "Client 1",
+                            PhoneNumber = "PhoneNumber 1"
+                        },
+                        new
+                        {
+                            ClientId = -2,
+                            CooperationStartDate = new DateTimeOffset(new DateTime(2022, 1, 26, 21, 12, 19, 230, DateTimeKind.Unspecified).AddTicks(3783), new TimeSpan(0, 0, 0, 0, 0)),
+                            Email = "Email 2",
+                            Name = "Client 2",
+                            PhoneNumber = "PhoneNumber 2"
+                        },
+                        new
+                        {
+                            ClientId = -3,
+                            CooperationStartDate = new DateTimeOffset(new DateTime(2022, 1, 26, 21, 12, 19, 230, DateTimeKind.Unspecified).AddTicks(3789), new TimeSpan(0, 0, 0, 0, 0)),
+                            Email = "Email 3",
+                            Name = "Client 3",
+                            PhoneNumber = "PhoneNumber 3"
+                        },
+                        new
+                        {
+                            ClientId = -4,
+                            CooperationStartDate = new DateTimeOffset(new DateTime(2022, 1, 26, 21, 12, 19, 230, DateTimeKind.Unspecified).AddTicks(3791), new TimeSpan(0, 0, 0, 0, 0)),
+                            Email = "Email 4",
+                            Name = "Client 4",
+                            PhoneNumber = "PhoneNumber 4"
+                        },
+                        new
+                        {
+                            ClientId = -5,
+                            CooperationStartDate = new DateTimeOffset(new DateTime(2022, 1, 26, 21, 12, 19, 230, DateTimeKind.Unspecified).AddTicks(3793), new TimeSpan(0, 0, 0, 0, 0)),
+                            Email = "Email 5",
+                            Name = "Client 5",
+                            PhoneNumber = "PhoneNumber 5"
+                        });
                 });
 
             modelBuilder.Entity("ITCompany.Entities.EmployeeEntity", b =>
@@ -136,6 +193,9 @@ namespace ITCompany.Migrations
                     b.Property<decimal>("Budget")
                         .HasColumnType("money");
 
+                    b.Property<int?>("ClientID")
+                        .HasColumnType("int");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(50)
@@ -147,7 +207,51 @@ namespace ITCompany.Migrations
 
                     b.HasKey("ProjectId");
 
+                    b.HasIndex("ClientID");
+
                     b.ToTable("Project");
+
+                    b.HasData(
+                        new
+                        {
+                            ProjectId = -1,
+                            Budget = 1000000m,
+                            ClientID = -1,
+                            Name = "Test project 1",
+                            StartedDate = new DateTime(2022, 1, 26, 21, 12, 19, 220, DateTimeKind.Utc).AddTicks(1408)
+                        },
+                        new
+                        {
+                            ProjectId = -2,
+                            Budget = 1000000m,
+                            ClientID = -2,
+                            Name = "Test project 2",
+                            StartedDate = new DateTime(2022, 1, 26, 21, 12, 19, 220, DateTimeKind.Utc).AddTicks(2518)
+                        },
+                        new
+                        {
+                            ProjectId = -3,
+                            Budget = 1000000m,
+                            ClientID = -3,
+                            Name = "Test project 3",
+                            StartedDate = new DateTime(2022, 1, 26, 21, 12, 19, 220, DateTimeKind.Utc).AddTicks(2524)
+                        },
+                        new
+                        {
+                            ProjectId = -4,
+                            Budget = 1000000m,
+                            ClientID = -4,
+                            Name = "Test project 4",
+                            StartedDate = new DateTime(2022, 1, 26, 21, 12, 19, 220, DateTimeKind.Utc).AddTicks(2526)
+                        },
+                        new
+                        {
+                            ProjectId = -5,
+                            Budget = 1000000m,
+                            ClientID = -5,
+                            Name = "Test project 5",
+                            StartedDate = new DateTime(2022, 1, 26, 21, 12, 19, 220, DateTimeKind.Utc).AddTicks(2528)
+                        });
                 });
 
             modelBuilder.Entity("ITCompany.Entities.TitleEntity", b =>
@@ -165,21 +269,6 @@ namespace ITCompany.Migrations
                     b.HasKey("TitleId");
 
                     b.ToTable("Title");
-                });
-
-            modelBuilder.Entity("EmployeeEntityProjectEntity", b =>
-                {
-                    b.HasOne("ITCompany.Entities.EmployeeEntity", null)
-                        .WithMany()
-                        .HasForeignKey("EmployeesEmployeeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("ITCompany.Entities.ProjectEntity", null)
-                        .WithMany()
-                        .HasForeignKey("ProjectsProjectId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("ITCompany.Entities.EmployeeEntity", b =>
@@ -214,6 +303,21 @@ namespace ITCompany.Migrations
                     b.Navigation("Employee");
 
                     b.Navigation("Project");
+                });
+
+            modelBuilder.Entity("ITCompany.Entities.ProjectEntity", b =>
+                {
+                    b.HasOne("ITCompany.Entities.ClientEntity", "Client")
+                        .WithMany("Projects")
+                        .HasForeignKey("ClientID")
+                        .OnDelete(DeleteBehavior.SetNull);
+
+                    b.Navigation("Client");
+                });
+
+            modelBuilder.Entity("ITCompany.Entities.ClientEntity", b =>
+                {
+                    b.Navigation("Projects");
                 });
 
             modelBuilder.Entity("ITCompany.Entities.EmployeeEntity", b =>

@@ -18,46 +18,11 @@ namespace ITCompany.EntitiesConfigs
             builder.Property(c => c.CooperationStartDate).IsRequired();
             builder.HasData(new List<ClientEntity>()
             {
-                new ClientEntity
-                {
-                    ClientId = -1,
-                    Name = "Test Client 1",
-                    Email = "Test Email 1",
-                    PhoneNumber = "Test PhoneNumber 1",
-                    CooperationStartDate = DateTimeOffset.UtcNow
-                },
-                new ClientEntity
-                {
-                    ClientId = -2,
-                    Name = "Test Client 2",
-                    Email = "Test Email 2",
-                    PhoneNumber = "Test PhoneNumber 2",
-                    CooperationStartDate = DateTimeOffset.UtcNow
-                },
-                new ClientEntity
-                {
-                    ClientId = -3,
-                    Name = "Test Client 3",
-                    Email = "Test Email 3",
-                    PhoneNumber = "Test PhoneNumber 3",
-                    CooperationStartDate = DateTimeOffset.UtcNow
-                },
-                new ClientEntity
-                {
-                    ClientId = -4,
-                    Name = "Test Client 4",
-                    Email = "Test Email 4",
-                    PhoneNumber = "Test PhoneNumber 4",
-                    CooperationStartDate = DateTimeOffset.UtcNow
-                },
-                new ClientEntity
-                {
-                    ClientId = -5,
-                    Name = "Test Client 5",
-                    Email = "Test Email 5",
-                    PhoneNumber = "Test PhoneNumber 5",
-                    CooperationStartDate = DateTimeOffset.UtcNow
-                }
+                new ClientEntity { ClientId = -1, Name = "Client 1", Email = "Email 1", PhoneNumber = "PhoneNumber 1", CooperationStartDate = DateTimeOffset.UtcNow },
+                new ClientEntity { ClientId = -2, Name = "Client 2", Email = "Email 2", PhoneNumber = "PhoneNumber 2", CooperationStartDate = DateTimeOffset.UtcNow },
+                new ClientEntity { ClientId = -3, Name = "Client 3", Email = "Email 3", PhoneNumber = "PhoneNumber 3", CooperationStartDate = DateTimeOffset.UtcNow },
+                new ClientEntity { ClientId = -4, Name = "Client 4", Email = "Email 4", PhoneNumber = "PhoneNumber 4", CooperationStartDate = DateTimeOffset.UtcNow },
+                new ClientEntity { ClientId = -5, Name = "Client 5", Email = "Email 5", PhoneNumber = "PhoneNumber 5", CooperationStartDate = DateTimeOffset.UtcNow },
             });
         }
     }

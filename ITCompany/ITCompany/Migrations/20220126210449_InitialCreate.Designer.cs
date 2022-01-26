@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ITCompany.Migrations
 {
     [DbContext(typeof(ITCompanyDbContext))]
-    [Migration("20220124195020_AddClientTableSeedClientAndProject")]
-    partial class AddClientTableSeedClientAndProject
+    [Migration("20220126210449_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -20,93 +20,6 @@ namespace ITCompany.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.13")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-            modelBuilder.Entity("EmployeeEntityProjectEntity", b =>
-                {
-                    b.Property<int>("EmployeesEmployeeId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ProjectsProjectId")
-                        .HasColumnType("int");
-
-                    b.HasKey("EmployeesEmployeeId", "ProjectsProjectId");
-
-                    b.HasIndex("ProjectsProjectId");
-
-                    b.ToTable("EmployeeEntityProjectEntity");
-                });
-
-            modelBuilder.Entity("ITCompany.Entities.ClientEntity", b =>
-                {
-                    b.Property<int>("ClientId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTimeOffset>("CooperationStartDate")
-                        .HasColumnType("datetimeoffset");
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<string>("PhoneNumber")
-                        .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
-
-                    b.HasKey("ClientId");
-
-                    b.ToTable("Client");
-
-                    b.HasData(
-                        new
-                        {
-                            ClientId = -1,
-                            CooperationStartDate = new DateTimeOffset(new DateTime(2022, 1, 24, 19, 50, 19, 214, DateTimeKind.Unspecified).AddTicks(2138), new TimeSpan(0, 0, 0, 0, 0)),
-                            Email = "Test Email 1",
-                            Name = "Test Client 1",
-                            PhoneNumber = "Test PhoneNumber 1"
-                        },
-                        new
-                        {
-                            ClientId = -2,
-                            CooperationStartDate = new DateTimeOffset(new DateTime(2022, 1, 24, 19, 50, 19, 214, DateTimeKind.Unspecified).AddTicks(2558), new TimeSpan(0, 0, 0, 0, 0)),
-                            Email = "Test Email 2",
-                            Name = "Test Client 2",
-                            PhoneNumber = "Test PhoneNumber 2"
-                        },
-                        new
-                        {
-                            ClientId = -3,
-                            CooperationStartDate = new DateTimeOffset(new DateTime(2022, 1, 24, 19, 50, 19, 214, DateTimeKind.Unspecified).AddTicks(2564), new TimeSpan(0, 0, 0, 0, 0)),
-                            Email = "Test Email 3",
-                            Name = "Test Client 3",
-                            PhoneNumber = "Test PhoneNumber 3"
-                        },
-                        new
-                        {
-                            ClientId = -4,
-                            CooperationStartDate = new DateTimeOffset(new DateTime(2022, 1, 24, 19, 50, 19, 214, DateTimeKind.Unspecified).AddTicks(2566), new TimeSpan(0, 0, 0, 0, 0)),
-                            Email = "Test Email 4",
-                            Name = "Test Client 4",
-                            PhoneNumber = "Test PhoneNumber 4"
-                        },
-                        new
-                        {
-                            ClientId = -5,
-                            CooperationStartDate = new DateTimeOffset(new DateTime(2022, 1, 24, 19, 50, 19, 214, DateTimeKind.Unspecified).AddTicks(2567), new TimeSpan(0, 0, 0, 0, 0)),
-                            Email = "Test Email 5",
-                            Name = "Test Client 5",
-                            PhoneNumber = "Test PhoneNumber 5"
-                        });
-                });
 
             modelBuilder.Entity("ITCompany.Entities.EmployeeEntity", b =>
                 {
@@ -208,9 +121,6 @@ namespace ITCompany.Migrations
                     b.Property<decimal>("Budget")
                         .HasColumnType("money");
 
-                    b.Property<int>("ClientID")
-                        .HasColumnType("int");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(50)
@@ -222,51 +132,7 @@ namespace ITCompany.Migrations
 
                     b.HasKey("ProjectId");
 
-                    b.HasIndex("ClientID");
-
                     b.ToTable("Project");
-
-                    b.HasData(
-                        new
-                        {
-                            ProjectId = -1,
-                            Budget = 1000000m,
-                            ClientID = -1,
-                            Name = "Auto Builder",
-                            StartedDate = new DateTime(2022, 1, 24, 19, 50, 19, 208, DateTimeKind.Utc).AddTicks(1047)
-                        },
-                        new
-                        {
-                            ProjectId = -2,
-                            Budget = 240000m,
-                            ClientID = -2,
-                            Name = "Ambulance caller",
-                            StartedDate = new DateTime(2022, 1, 24, 19, 50, 19, 208, DateTimeKind.Utc).AddTicks(1718)
-                        },
-                        new
-                        {
-                            ProjectId = -3,
-                            Budget = 1000000m,
-                            ClientID = -3,
-                            Name = "Tickects Booking",
-                            StartedDate = new DateTime(2022, 1, 24, 19, 50, 19, 208, DateTimeKind.Utc).AddTicks(1722)
-                        },
-                        new
-                        {
-                            ProjectId = -4,
-                            Budget = 1000000m,
-                            ClientID = -4,
-                            Name = "Test project 1",
-                            StartedDate = new DateTime(2022, 1, 24, 19, 50, 19, 208, DateTimeKind.Utc).AddTicks(1724)
-                        },
-                        new
-                        {
-                            ProjectId = -5,
-                            Budget = 1000000m,
-                            ClientID = -5,
-                            Name = "Test project 2",
-                            StartedDate = new DateTime(2022, 1, 24, 19, 50, 19, 208, DateTimeKind.Utc).AddTicks(1726)
-                        });
                 });
 
             modelBuilder.Entity("ITCompany.Entities.TitleEntity", b =>
@@ -284,21 +150,6 @@ namespace ITCompany.Migrations
                     b.HasKey("TitleId");
 
                     b.ToTable("Title");
-                });
-
-            modelBuilder.Entity("EmployeeEntityProjectEntity", b =>
-                {
-                    b.HasOne("ITCompany.Entities.EmployeeEntity", null)
-                        .WithMany()
-                        .HasForeignKey("EmployeesEmployeeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("ITCompany.Entities.ProjectEntity", null)
-                        .WithMany()
-                        .HasForeignKey("ProjectsProjectId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("ITCompany.Entities.EmployeeEntity", b =>
@@ -333,22 +184,6 @@ namespace ITCompany.Migrations
                     b.Navigation("Employee");
 
                     b.Navigation("Project");
-                });
-
-            modelBuilder.Entity("ITCompany.Entities.ProjectEntity", b =>
-                {
-                    b.HasOne("ITCompany.Entities.ClientEntity", "Client")
-                        .WithMany("Projects")
-                        .HasForeignKey("ClientID")
-                        .OnDelete(DeleteBehavior.SetNull)
-                        .IsRequired();
-
-                    b.Navigation("Client");
-                });
-
-            modelBuilder.Entity("ITCompany.Entities.ClientEntity", b =>
-                {
-                    b.Navigation("Projects");
                 });
 
             modelBuilder.Entity("ITCompany.Entities.EmployeeEntity", b =>

@@ -80,30 +80,6 @@ namespace ITCompany.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "EmployeeEntityProjectEntity",
-                columns: table => new
-                {
-                    EmployeesEmployeeId = table.Column<int>(type: "int", nullable: false),
-                    ProjectsProjectId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_EmployeeEntityProjectEntity", x => new { x.EmployeesEmployeeId, x.ProjectsProjectId });
-                    table.ForeignKey(
-                        name: "FK_EmployeeEntityProjectEntity_Employee_EmployeesEmployeeId",
-                        column: x => x.EmployeesEmployeeId,
-                        principalTable: "Employee",
-                        principalColumn: "EmployeeId",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_EmployeeEntityProjectEntity_Project_ProjectsProjectId",
-                        column: x => x.ProjectsProjectId,
-                        principalTable: "Project",
-                        principalColumn: "ProjectId",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "EmployeeProject",
                 columns: table => new
                 {
@@ -142,11 +118,6 @@ namespace ITCompany.Migrations
                 column: "TitleId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_EmployeeEntityProjectEntity_ProjectsProjectId",
-                table: "EmployeeEntityProjectEntity",
-                column: "ProjectsProjectId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_EmployeeProject_EmployeeId",
                 table: "EmployeeProject",
                 column: "EmployeeId");
@@ -159,9 +130,6 @@ namespace ITCompany.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(
-                name: "EmployeeEntityProjectEntity");
-
             migrationBuilder.DropTable(
                 name: "EmployeeProject");
 

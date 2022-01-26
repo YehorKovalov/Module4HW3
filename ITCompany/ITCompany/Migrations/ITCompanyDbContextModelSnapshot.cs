@@ -19,21 +19,6 @@ namespace ITCompany.Migrations
                 .HasAnnotation("ProductVersion", "5.0.13")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("EmployeeEntityProjectEntity", b =>
-                {
-                    b.Property<int>("EmployeesEmployeeId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ProjectsProjectId")
-                        .HasColumnType("int");
-
-                    b.HasKey("EmployeesEmployeeId", "ProjectsProjectId");
-
-                    b.HasIndex("ProjectsProjectId");
-
-                    b.ToTable("EmployeeEntityProjectEntity");
-                });
-
             modelBuilder.Entity("ITCompany.Entities.ClientEntity", b =>
                 {
                     b.Property<int>("ClientId")
@@ -67,42 +52,42 @@ namespace ITCompany.Migrations
                         new
                         {
                             ClientId = -1,
-                            CooperationStartDate = new DateTimeOffset(new DateTime(2022, 1, 24, 19, 50, 19, 214, DateTimeKind.Unspecified).AddTicks(2138), new TimeSpan(0, 0, 0, 0, 0)),
-                            Email = "Test Email 1",
-                            Name = "Test Client 1",
-                            PhoneNumber = "Test PhoneNumber 1"
+                            CooperationStartDate = new DateTimeOffset(new DateTime(2022, 1, 26, 21, 12, 19, 230, DateTimeKind.Unspecified).AddTicks(3358), new TimeSpan(0, 0, 0, 0, 0)),
+                            Email = "Email 1",
+                            Name = "Client 1",
+                            PhoneNumber = "PhoneNumber 1"
                         },
                         new
                         {
                             ClientId = -2,
-                            CooperationStartDate = new DateTimeOffset(new DateTime(2022, 1, 24, 19, 50, 19, 214, DateTimeKind.Unspecified).AddTicks(2558), new TimeSpan(0, 0, 0, 0, 0)),
-                            Email = "Test Email 2",
-                            Name = "Test Client 2",
-                            PhoneNumber = "Test PhoneNumber 2"
+                            CooperationStartDate = new DateTimeOffset(new DateTime(2022, 1, 26, 21, 12, 19, 230, DateTimeKind.Unspecified).AddTicks(3783), new TimeSpan(0, 0, 0, 0, 0)),
+                            Email = "Email 2",
+                            Name = "Client 2",
+                            PhoneNumber = "PhoneNumber 2"
                         },
                         new
                         {
                             ClientId = -3,
-                            CooperationStartDate = new DateTimeOffset(new DateTime(2022, 1, 24, 19, 50, 19, 214, DateTimeKind.Unspecified).AddTicks(2564), new TimeSpan(0, 0, 0, 0, 0)),
-                            Email = "Test Email 3",
-                            Name = "Test Client 3",
-                            PhoneNumber = "Test PhoneNumber 3"
+                            CooperationStartDate = new DateTimeOffset(new DateTime(2022, 1, 26, 21, 12, 19, 230, DateTimeKind.Unspecified).AddTicks(3789), new TimeSpan(0, 0, 0, 0, 0)),
+                            Email = "Email 3",
+                            Name = "Client 3",
+                            PhoneNumber = "PhoneNumber 3"
                         },
                         new
                         {
                             ClientId = -4,
-                            CooperationStartDate = new DateTimeOffset(new DateTime(2022, 1, 24, 19, 50, 19, 214, DateTimeKind.Unspecified).AddTicks(2566), new TimeSpan(0, 0, 0, 0, 0)),
-                            Email = "Test Email 4",
-                            Name = "Test Client 4",
-                            PhoneNumber = "Test PhoneNumber 4"
+                            CooperationStartDate = new DateTimeOffset(new DateTime(2022, 1, 26, 21, 12, 19, 230, DateTimeKind.Unspecified).AddTicks(3791), new TimeSpan(0, 0, 0, 0, 0)),
+                            Email = "Email 4",
+                            Name = "Client 4",
+                            PhoneNumber = "PhoneNumber 4"
                         },
                         new
                         {
                             ClientId = -5,
-                            CooperationStartDate = new DateTimeOffset(new DateTime(2022, 1, 24, 19, 50, 19, 214, DateTimeKind.Unspecified).AddTicks(2567), new TimeSpan(0, 0, 0, 0, 0)),
-                            Email = "Test Email 5",
-                            Name = "Test Client 5",
-                            PhoneNumber = "Test PhoneNumber 5"
+                            CooperationStartDate = new DateTimeOffset(new DateTime(2022, 1, 26, 21, 12, 19, 230, DateTimeKind.Unspecified).AddTicks(3793), new TimeSpan(0, 0, 0, 0, 0)),
+                            Email = "Email 5",
+                            Name = "Client 5",
+                            PhoneNumber = "PhoneNumber 5"
                         });
                 });
 
@@ -206,7 +191,7 @@ namespace ITCompany.Migrations
                     b.Property<decimal>("Budget")
                         .HasColumnType("money");
 
-                    b.Property<int>("ClientID")
+                    b.Property<int?>("ClientID")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
@@ -230,40 +215,40 @@ namespace ITCompany.Migrations
                             ProjectId = -1,
                             Budget = 1000000m,
                             ClientID = -1,
-                            Name = "Auto Builder",
-                            StartedDate = new DateTime(2022, 1, 24, 19, 50, 19, 208, DateTimeKind.Utc).AddTicks(1047)
+                            Name = "Test project 1",
+                            StartedDate = new DateTime(2022, 1, 26, 21, 12, 19, 220, DateTimeKind.Utc).AddTicks(1408)
                         },
                         new
                         {
                             ProjectId = -2,
-                            Budget = 240000m,
+                            Budget = 1000000m,
                             ClientID = -2,
-                            Name = "Ambulance caller",
-                            StartedDate = new DateTime(2022, 1, 24, 19, 50, 19, 208, DateTimeKind.Utc).AddTicks(1718)
+                            Name = "Test project 2",
+                            StartedDate = new DateTime(2022, 1, 26, 21, 12, 19, 220, DateTimeKind.Utc).AddTicks(2518)
                         },
                         new
                         {
                             ProjectId = -3,
                             Budget = 1000000m,
                             ClientID = -3,
-                            Name = "Tickects Booking",
-                            StartedDate = new DateTime(2022, 1, 24, 19, 50, 19, 208, DateTimeKind.Utc).AddTicks(1722)
+                            Name = "Test project 3",
+                            StartedDate = new DateTime(2022, 1, 26, 21, 12, 19, 220, DateTimeKind.Utc).AddTicks(2524)
                         },
                         new
                         {
                             ProjectId = -4,
                             Budget = 1000000m,
                             ClientID = -4,
-                            Name = "Test project 1",
-                            StartedDate = new DateTime(2022, 1, 24, 19, 50, 19, 208, DateTimeKind.Utc).AddTicks(1724)
+                            Name = "Test project 4",
+                            StartedDate = new DateTime(2022, 1, 26, 21, 12, 19, 220, DateTimeKind.Utc).AddTicks(2526)
                         },
                         new
                         {
                             ProjectId = -5,
                             Budget = 1000000m,
                             ClientID = -5,
-                            Name = "Test project 2",
-                            StartedDate = new DateTime(2022, 1, 24, 19, 50, 19, 208, DateTimeKind.Utc).AddTicks(1726)
+                            Name = "Test project 5",
+                            StartedDate = new DateTime(2022, 1, 26, 21, 12, 19, 220, DateTimeKind.Utc).AddTicks(2528)
                         });
                 });
 
@@ -282,21 +267,6 @@ namespace ITCompany.Migrations
                     b.HasKey("TitleId");
 
                     b.ToTable("Title");
-                });
-
-            modelBuilder.Entity("EmployeeEntityProjectEntity", b =>
-                {
-                    b.HasOne("ITCompany.Entities.EmployeeEntity", null)
-                        .WithMany()
-                        .HasForeignKey("EmployeesEmployeeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("ITCompany.Entities.ProjectEntity", null)
-                        .WithMany()
-                        .HasForeignKey("ProjectsProjectId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("ITCompany.Entities.EmployeeEntity", b =>
@@ -338,8 +308,7 @@ namespace ITCompany.Migrations
                     b.HasOne("ITCompany.Entities.ClientEntity", "Client")
                         .WithMany("Projects")
                         .HasForeignKey("ClientID")
-                        .OnDelete(DeleteBehavior.SetNull)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.SetNull);
 
                     b.Navigation("Client");
                 });

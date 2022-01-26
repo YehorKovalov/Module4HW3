@@ -11,7 +11,6 @@ namespace ITCompany
         public ITCompanyDbContext(DbContextOptions<ITCompanyDbContext> options)
             : base(options)
         {
-            Database.EnsureCreated();
         }
 
         public DbSet<EmployeeEntity> Employees { get; set; }

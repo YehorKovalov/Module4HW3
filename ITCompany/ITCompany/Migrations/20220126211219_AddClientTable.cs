@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace ITCompany.Migrations
 {
-    public partial class AddClientTableSeedClientAndProject : Migration
+    public partial class AddClientTable : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -11,8 +11,7 @@ namespace ITCompany.Migrations
                 name: "ClientID",
                 table: "Project",
                 type: "int",
-                nullable: false,
-                defaultValue: 0);
+                nullable: true);
 
             migrationBuilder.CreateTable(
                 name: "Client",
@@ -35,11 +34,11 @@ namespace ITCompany.Migrations
                 columns: new[] { "ClientId", "CooperationStartDate", "Email", "Name", "PhoneNumber" },
                 values: new object[,]
                 {
-                    { -1, new DateTimeOffset(new DateTime(2022, 1, 24, 19, 50, 19, 214, DateTimeKind.Unspecified).AddTicks(2138), new TimeSpan(0, 0, 0, 0, 0)), "Test Email 1", "Test Client 1", "Test PhoneNumber 1" },
-                    { -2, new DateTimeOffset(new DateTime(2022, 1, 24, 19, 50, 19, 214, DateTimeKind.Unspecified).AddTicks(2558), new TimeSpan(0, 0, 0, 0, 0)), "Test Email 2", "Test Client 2", "Test PhoneNumber 2" },
-                    { -3, new DateTimeOffset(new DateTime(2022, 1, 24, 19, 50, 19, 214, DateTimeKind.Unspecified).AddTicks(2564), new TimeSpan(0, 0, 0, 0, 0)), "Test Email 3", "Test Client 3", "Test PhoneNumber 3" },
-                    { -4, new DateTimeOffset(new DateTime(2022, 1, 24, 19, 50, 19, 214, DateTimeKind.Unspecified).AddTicks(2566), new TimeSpan(0, 0, 0, 0, 0)), "Test Email 4", "Test Client 4", "Test PhoneNumber 4" },
-                    { -5, new DateTimeOffset(new DateTime(2022, 1, 24, 19, 50, 19, 214, DateTimeKind.Unspecified).AddTicks(2567), new TimeSpan(0, 0, 0, 0, 0)), "Test Email 5", "Test Client 5", "Test PhoneNumber 5" }
+                    { -1, new DateTimeOffset(new DateTime(2022, 1, 26, 21, 12, 19, 230, DateTimeKind.Unspecified).AddTicks(3358), new TimeSpan(0, 0, 0, 0, 0)), "Email 1", "Client 1", "PhoneNumber 1" },
+                    { -2, new DateTimeOffset(new DateTime(2022, 1, 26, 21, 12, 19, 230, DateTimeKind.Unspecified).AddTicks(3783), new TimeSpan(0, 0, 0, 0, 0)), "Email 2", "Client 2", "PhoneNumber 2" },
+                    { -3, new DateTimeOffset(new DateTime(2022, 1, 26, 21, 12, 19, 230, DateTimeKind.Unspecified).AddTicks(3789), new TimeSpan(0, 0, 0, 0, 0)), "Email 3", "Client 3", "PhoneNumber 3" },
+                    { -4, new DateTimeOffset(new DateTime(2022, 1, 26, 21, 12, 19, 230, DateTimeKind.Unspecified).AddTicks(3791), new TimeSpan(0, 0, 0, 0, 0)), "Email 4", "Client 4", "PhoneNumber 4" },
+                    { -5, new DateTimeOffset(new DateTime(2022, 1, 26, 21, 12, 19, 230, DateTimeKind.Unspecified).AddTicks(3793), new TimeSpan(0, 0, 0, 0, 0)), "Email 5", "Client 5", "PhoneNumber 5" }
                 });
 
             migrationBuilder.InsertData(
@@ -47,11 +46,11 @@ namespace ITCompany.Migrations
                 columns: new[] { "ProjectId", "Budget", "ClientID", "Name", "StartedDate" },
                 values: new object[,]
                 {
-                    { -1, 1000000m, -1, "Auto Builder", new DateTime(2022, 1, 24, 19, 50, 19, 208, DateTimeKind.Utc).AddTicks(1047) },
-                    { -2, 240000m, -2, "Ambulance caller", new DateTime(2022, 1, 24, 19, 50, 19, 208, DateTimeKind.Utc).AddTicks(1718) },
-                    { -3, 1000000m, -3, "Tickects Booking", new DateTime(2022, 1, 24, 19, 50, 19, 208, DateTimeKind.Utc).AddTicks(1722) },
-                    { -4, 1000000m, -4, "Test project 1", new DateTime(2022, 1, 24, 19, 50, 19, 208, DateTimeKind.Utc).AddTicks(1724) },
-                    { -5, 1000000m, -5, "Test project 2", new DateTime(2022, 1, 24, 19, 50, 19, 208, DateTimeKind.Utc).AddTicks(1726) }
+                    { -1, 1000000m, -1, "Test project 1", new DateTime(2022, 1, 26, 21, 12, 19, 220, DateTimeKind.Utc).AddTicks(1408) },
+                    { -2, 1000000m, -2, "Test project 2", new DateTime(2022, 1, 26, 21, 12, 19, 220, DateTimeKind.Utc).AddTicks(2518) },
+                    { -3, 1000000m, -3, "Test project 3", new DateTime(2022, 1, 26, 21, 12, 19, 220, DateTimeKind.Utc).AddTicks(2524) },
+                    { -4, 1000000m, -4, "Test project 4", new DateTime(2022, 1, 26, 21, 12, 19, 220, DateTimeKind.Utc).AddTicks(2526) },
+                    { -5, 1000000m, -5, "Test project 5", new DateTime(2022, 1, 26, 21, 12, 19, 220, DateTimeKind.Utc).AddTicks(2528) }
                 });
 
             migrationBuilder.CreateIndex(
